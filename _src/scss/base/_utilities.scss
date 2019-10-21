@@ -25,20 +25,22 @@
     }
 } */
 html, body {
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    height: 100%;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
 }
+
 main {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 * {
-    box-sizing: border-box;
+  font-family: "Montserrat", "Roboto", "Lato", "Arial", "sans-serif";
+  box-sizing: border-box;
 }
 
 .card-preview {
-    display: none;
+  display: none;
 }

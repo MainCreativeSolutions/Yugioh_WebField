@@ -3,13 +3,61 @@ $card-height: 70px;
   width: $card-height;
   height: calc(#{$card-height} * #{$scale-factor});
   background-color: gray;
-  @include box-shadow(
-                  inset 0 0 5px black,
-                  0 0 30px #812d10
-  );
   position: relative;
+  @include box-shadow(inset 0 0 5px black, 0 0 30px #812d10);
   @include border-radius(3px);
 
+  @media (min-width: 1920px) {
+    width: calc(#{$card-height} * 1.3);
+    height: calc((#{$card-height} * 1.3) * #{$scale-factor});
+    &.card-slot {
+      &--monster {
+        &::after {
+          bottom: -21px;
+        }
+      }
+
+      &--defense {
+        &::before {
+          bottom: -21px;
+        }
+
+        img {
+          bottom: -21px;
+        }
+      }
+    }
+  }
+
+  &.two-players {
+    background-color: orangered;
+
+    &::after {
+      background-color: orangered;
+    }
+
+    width: calc(#{$card-height} * 2);
+    height: calc(#{$card-height} * 2 * #{$scale-factor});
+
+    &.card-slot {
+      &--monster {
+        &::after {
+          bottom: -32px;
+        }
+      }
+
+      &--defense {
+        &::before {
+          bottom: -32px;
+        }
+
+        img {
+          bottom: -32px;
+        }
+      }
+    }
+
+  }
 
   img {
     width: 100%;

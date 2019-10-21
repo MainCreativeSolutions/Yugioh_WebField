@@ -99,7 +99,16 @@ $('.card-slot--hidden').off().on('click', function () {
 
 
 const yugioh = {
+    // Config
+    _scaleFactor: 614 / 421,
+    _defaultSlotSize: {
+        mobile: 70,
+        desktop4p: 70 * 1.3,
+        desktop2p: 70 * 1.5
+    },
+    // Game
     playerId: 0,
+    // DB
     db: null,
     dbRef: null,
     gameRef: null,
@@ -111,6 +120,8 @@ const yugioh = {
     fieldMonstersRef: null,
     fieldMagicTrapRef: null,
     fieldEffectCardsRef: null,
+    // Functions
+    // Config Functions
     init: function () {
         this.cacheDOM();
         this.bindEvents();
@@ -139,31 +150,89 @@ const yugioh = {
     },
     cacheDOM: function () {
         this.rotators = Array.from(document.getElementsByClassName("field__rotator"));
+        this.playersSelectors = Array.from(document.getElementsByClassName('field__players-count-selector'));
+        this.duelistSide = Array.from(document.getElementsByClassName("field__duelist-side"));
+        this.cardSlots = Array.from(document.getElementsByClassName('card-slot'));
     },
     bindEvents: function () {
         this.bindRotators();
+        this.bindNumberOfPlayersSelector();
     },
     bindRotators: function () {
         this.rotators.forEach(function (el, i) {
             el.addEventListener("click", function (ev) {
-                ev.preventDefault();
                 ev.stopPropagation();
+                ev.preventDefault();
                 yugioh.rotatePlayerField(el)
             });
         });
     },
-    startNewGame: function () {
-        this.db = firebase.database();
-        this.dbRef = this.db.ref();
-        this.dbRef.set(game);
-        this.startFirebase(this.playerId)
+    bindNumberOfPlayersSelector: function () {
+        this.playersSelectors.forEach(function (el, i) {
+            el.addEventListener('click', function (ev) {
+                ev.stopPropagation();
+                ev.preventDefault();
+                yugioh.selectNumberOfPlayers(el);
+            });
+        });
+    },
+    // UI/HUD Functions
+    selectNumberOfPlayers: function (el) {
+        const numOfPlayers = parseInt(el.dataset['numOfPlayers'], 10);
+        console.dir(this.duelistSide);
+        console.dir(this.rotators);
+        switch (numOfPlayers) {
+            case 2:
+                yugioh.setup2PFieldViewport();
+                break;
+            case 4:
+                yugioh.reset4PFieldViewport();
+        }
     },
     rotatePlayerField: function (el) {
         const target = el.dataset['target'];
         const rotation = parseInt(el.dataset['rotation'], 10);
-        console.log(el, target, rotation);
+        // console.log(el, target, rotation);
         document.getElementsByClassName(target)[0].style.transform = 'rotate(' + rotation + 'deg)';
         el.dataset['rotation'] = rotation + 180
+    },
+    reset4PFieldViewport: function () {
+        this.duelistSide[0].style.width = '50%';
+        this.duelistSide[1].style.width = '50%';
+        this.duelistSide[2].style.display = 'flex';
+        this.duelistSide[3].style.display = 'flex';
+        this.rotators[0].style.left = 'calc(50% - 59px - 15px)';
+        this.rotators[1].style.left = 'calc(50% - 59px - 15px)';
+        this.rotators[2].style.display = 'block';
+        this.rotators[3].style.display = 'block';
+        this.playersSelectors[0].style.left = 'calc(50% - 59px - 15px)';
+        this.playersSelectors[1].style.left = 'calc(50% + 15px)';
+        this.cardSlots.forEach(function (el, i) {
+            el.classList.remove('two-players')
+        });
+    },
+    setup2PFieldViewport: function () {
+        this.duelistSide[0].style.width = '100%';
+        this.duelistSide[1].style.width = '100%';
+        this.duelistSide[2].style.display = 'none';
+        this.duelistSide[3].style.display = 'none';
+        this.rotators[0].style.left = '15px';
+        this.rotators[1].style.left = '15px';
+        this.rotators[2].style.display = 'none';
+        this.rotators[3].style.display = 'none';
+        this.playersSelectors[0].style.left = '15px';
+        this.playersSelectors[1].style.left = 'calc(15px + 59px + 15px)';
+        this.cardSlots.forEach(function (elm, i) {
+            elm.classList.add('two-players')
+        });
+    },
+    // Game Functions
+    startNewGame: function () {
+        this.db = firebase.database();
+        this.dbRef = this.db.ref();
+        game['game-' + "r4nd0m"] = game.game;
+        this.dbRef.set(game);
+        this.startFirebase(this.playerId)
     },
     addLifePoints: function () {
     },
@@ -201,5 +270,6 @@ const yugioh = {
     },
 
 };
-
-yugioh.init();
+window.onload = function () {
+    yugioh.init();
+};

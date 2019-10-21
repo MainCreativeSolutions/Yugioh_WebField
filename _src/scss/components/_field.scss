@@ -20,7 +20,19 @@ $blurrOffset: 10%;
 
   }
 
-  &__rotator {
+  &__players-count-selector {
+    &--2x {
+      top: 15px;
+      left: calc(50% - 59px - 15px);
+    }
+
+    &--4x {
+      top: 15px;
+      left: calc(50% + 15px);
+    }
+  }
+
+  &__rotator, &__players-count-selector {
     display: inline-block;
     cursor: pointer;
     position: fixed;
@@ -50,8 +62,8 @@ $blurrOffset: 10%;
       left: calc(50% + 15px);
     }
 
-
-    i {
+    i, span {
+      text-transform: uppercase;
       font-size: 25pt;
       color: white;
     }
@@ -163,6 +175,7 @@ $blurrOffset: 10%;
     @include display-flex;
     @include justify-content(space-between);
     @include align-items(center);
+    @include flex-direction(row-reverse);
 
     .card-slot {
 
