@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2f2d5bdf-6ee2-466f-a527-f88f7b0cba30" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_src/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_src/html/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_src/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/_src/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_src/scss/base/_utilities.scss" beforeDir="false" afterPath="$PROJECT_DIR$/_src/scss/base/_utilities.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_src/scss/components/_card-slot.scss" beforeDir="false" afterPath="$PROJECT_DIR$/_src/scss/components/_card-slot.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_src/scss/components/_field.scss" beforeDir="false" afterPath="$PROJECT_DIR$/_src/scss/components/_field.scss" afterDir="false" />
-    </list>
+    <list default="true" id="2f2d5bdf-6ee2-466f-a527-f88f7b0cba30" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +46,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1571614428248</updated>
-      <workItem from="1571614431752" duration="18253000" />
+      <workItem from="1571614431752" duration="18378000" />
     </task>
     <servers />
   </component>
