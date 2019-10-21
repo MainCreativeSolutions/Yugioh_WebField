@@ -234,41 +234,67 @@ const yugioh = {
         this.dbRef.set(game);
         this.startFirebase(this.playerId)
     },
-    addLifePoints: function () {
+    addLifePoints: function (points) {
+        game.game.players[0].lifePoints += points;
     },
-    removeLifePoints: function () {
+    removeLifePoints: function (points) {
+        game.game.players[0].lifePoints -= points;
     },
     drawCard: function (deckId) {
+        game.game.players[0].hand.push(game.game.players[0].deck.pop());
     },
     drawSpecificCard: function (cardId, deckId) {
+        game.game.players[0].hand.push(game.game.players[0].deck.pop());
     },
     sendCardToGraveyard: function (cardId) {
+        const handCard = game.game.players[0].hand.pop();
+        game.game.players[0].monsterSlot.push(handCard);
     },
     setAttackingCard: function (cardId) {
+        const handCard = game.game.players[0].hand.pop();
+        handCard.faceUp = true;
+        game.game.players[0].monsterSlot.push(handCard);
     },
     changeCardToAttack: function (cardId) {
+        game.game.players[0].monsterSlot[0].isAttack = true;
     },
     changeCardToDefense: function (cardId) {
+        game.game.players[0].monsterSlot[0].isAttack = false;
     },
     setDefenseCardUp: function (cardId) {
+        game.game.players[0].monsterSlot[0].faceUp = true;
     },
     setDefenseCardDown: function (cardId) {
-    },
-    flipDefenseCard: function (cardId) {
+        game.game.players[0].monsterSlot[0].faceUp = false;
     },
     setMagicTrapCardUp: function (cardId) {
+        const handCard = game.game.players[0].hand.pop();
+        handCard.faceUp = true;
+        game.game.players[0].magicOrTrapSlots.push(handCard);
     },
     setMagicTrapDown: function (cardId) {
+        const handCard = game.game.players[0].hand.pop();
+        handCard.faceUp = false;
+        game.game.players[0].magicOrTrapSlots.push(handCard);
     },
     setFieldCard: function (cardId) {
+        game.game.players[0].fieldCardsSlot.card = game.game.players[0].hand.pop();
     },
     shuffleDeck: function (deckId) {
     },
     resurrectCard: function (cardId, toHand) {
+        if (toHand) {
+            game.game.players[0].hand.push(game.game.players[0].graveyard.pop());
+        } else {
+            game.game.players[0].monsterSlot.push(game.game.players[0].graveyard.pop());
+        }
     },
     exchangeCard: function (cardSrcId, cardDescId, playerId) {
     },
-
+    // DB Functions
+    updateDatabase: function () {
+        this.gameRef.set(game.game);
+    }
 };
 window.onload = function () {
     yugioh.init();
