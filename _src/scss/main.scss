@@ -1,0 +1,64 @@
+/* IMPORT COMPASS & CORE ANIMATIONS */
+@import "compass";
+@import "animation/core";
+
+/* ================================= */
+
+/* IMPORT UTILITIES */
+@import "utils/vars";
+// @import "utils/sprites";
+@import "utils/functions";
+@import "utils/mixins";
+@import "utils/placeholders";
+// @import "utils/svg-assets";
+
+
+// @import "owl.carousel";
+
+/* ================================= */
+
+/* IMPORT VENDORS */
+
+/* ================================= */
+
+/* IMPORT BASE */
+//@import "base/reset";
+@import "base/fonts";
+@import "base/utilities";
+
+/* ================================= */
+
+/* IMPORT LAYOUT */
+// @import "layout/navigation";
+// @import "layout/header";
+// @import "layout/footer";
+// @import "layout/forms";
+
+/* ================================= */
+
+/* IMPORT COMPONENTS */
+// @import "components/buttons";
+// @import "components/carousel";
+// @import "components/dropdown";
+// @import "components/icon";
+// @import "components/accessibility-bar";
+@import "components/field";
+@import "components/card-slot";
+
+/* ================================= */
+
+/* IMPORT PAGES */
+// @import "pages/home";
+// @import "pages/icons";
+
+/* ================================= */  
+
+/* IMPORT THEMES */
+// @import "theme/theme_contraste-gray-scale";
+// @import "theme/theme_contraste-high-contraste";
+// @import "theme/theme_contraste-inverse-color";
+// @import "theme/theme_contraste-monocromatico";
+// @import "theme/theme_contraste-preto-amarelo";
+
+/* @import "themes/theme";
+@import "themes/admin"; */

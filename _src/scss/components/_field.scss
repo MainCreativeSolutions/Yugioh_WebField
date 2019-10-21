@@ -1,0 +1,187 @@
+$blurrOffset: 10%;
+
+.field {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    position: absolute;
+    left: calc((#{$blurrOffset} / 2) * -1);
+    top: calc((#{$blurrOffset} / 2) * -1);
+    z-index: -10;
+    content: "";
+    width: calc(100% + #{$blurrOffset});
+    height: calc(100% + #{$blurrOffset});
+    filter: blur(7px);
+    background-image: v-url("#{$img-path}field/bg4.jpg");
+    background-size: cover;
+
+  }
+
+  &__rotator {
+    display: inline-block;
+    cursor: pointer;
+    position: fixed;
+    background-color: rgba(whitesmoke, .3);
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 10;
+    @include transition(all .3s ease-in-out);
+
+    &--player-1 {
+      top: calc(50% - 53px - 15px);
+      left: calc(50% - 53px - 15px);
+    }
+
+    &--player-2 {
+      top: calc(50% + 15px);
+      left: calc(50% - 53px - 15px);
+    }
+
+    &--player-3 {
+      top: calc(50% - 53px - 15px);
+      left: calc(50% + 15px);
+    }
+
+    &--player-4 {
+      top: calc(50% + 15px);
+      left: calc(50% + 15px);
+    }
+
+
+    i {
+      font-size: 25pt;
+      color: white;
+    }
+  }
+
+  &__duelist-side {
+    position: absolute;
+    @include display-flex;
+    width: 50%;
+    height: 50%;
+    border: 1px solid rgba(gray, .6);
+
+    &::after {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background-color: gray;
+      opacity: .7;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 50px;
+      text-align: center;
+    }
+
+    &--player-1 {
+      top: 0;
+      left: 0;
+      @include transform(rotate(180deg));
+
+      &::after {
+        content: "top";
+      }
+    }
+
+    &--player-2 {
+      left: 0;
+      bottom: 0;
+
+      &::after {
+        content: "left";
+      }
+    }
+
+    &--player-3 {
+      top: 0;
+      right: 0;
+      @include transform(rotate(180deg));
+
+      &::after {
+        content: "right";
+      }
+    }
+
+    &--player-4 {
+      right: 0;
+      bottom: 0;
+
+      &::after {
+        content: "bottom";
+      }
+    }
+  }
+
+
+  &__player-name {
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    top: calc(50% - 24px);
+
+    span {
+      font-family: $font-0;
+      text-transform: capitalize;
+      color: gray;
+      font-size: 40px;
+    }
+  }
+
+  &__deck {
+    width: 12%;
+    @include display-flex;
+    @include flex-direction(column);
+    @include align-items(center);
+    @include justify-content(space-evenly);
+
+    .card-slot {
+      &--deck {
+        background-image: v-url("#{$img-path}cards/default-back-card.jpg");
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+      }
+    }
+  }
+
+  &__magic-trap-and-monster {
+    height: 100%;
+    width: 76%;
+    @include display-flex;
+    @include flex-direction(column);
+    @include justify-content(space-between);
+  }
+
+  &__monster {
+    height: 48%;
+    padding: 0 15px;
+    @include display-flex;
+    @include justify-content(space-between);
+    @include align-items(center);
+
+    .card-slot {
+
+    }
+  }
+
+  &__magic-trap {
+    @extend .field__monster;
+
+    .card-slot {
+
+    }
+  }
+
+  &__card-field {
+    @extend .field__deck;
+
+    .card-slot {
+
+    }
+  }
+}

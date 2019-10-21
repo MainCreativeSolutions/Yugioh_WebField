@@ -1,0 +1,4 @@
+/* Font import example*/
+// usando o mixin @include font-face('Nome da Fonte', pasta/arquivo-da-fonte, peso, estilo, formatos);
+/* @include font-face('FontName', FontFolder/fontfile, 400, normal, eot woff svg); */
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');

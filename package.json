@@ -1,0 +1,37 @@
+{
+  "name": "yugioh",
+  "version": "1.0.0",
+  "author": "Imperiallis Studios",
+  "homepage": "http://www.ef5.com.br/",
+  "readmeFile": "Readme.md",
+  "scripts": {
+    "postinstall": "readme.html || open readme.html",
+    "dev": "grunt",
+    "deploy": "grunt dist"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "@fortawesome/fontawesome-free": "^5.11.2",
+    "bootstrap": "^4.1.1",
+    "compass-mixins": "^0.12.10",
+    "grunt": "^1.0.1",
+    "grunt-babel": "^8.0.0",
+    "grunt-banner": "^0.6.0",
+    "grunt-browser-sync": "^2.2.0",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-uglify": "^0.2.4",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-include-replace": "^5.0.0",
+    "grunt-newer": "^0.7.0",
+    "grunt-sass": "^2.0.0",
+    "grunt-spritesmith": "^6.6.0",
+    "grunt-tinypng": "^0.7.0",
+    "jquery": "^3.3.1",
+    "load-grunt-tasks": "^3.5.2",
+    "node-sass": "^2.1.1",
+    "owl.carousel2": "^2.2.1",
+    "popper.js": "^1.14.3"
+  }
+}

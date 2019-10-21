@@ -1,0 +1,19 @@
+/* escala de cinza invertida */
+html body {
+  &.gray-scale-theme {
+    background-color: #000 !important;
+    filter: invert(100%) grayscale(100%) !important;
+    -webkit-filter: invert(100%) grayscale(100%) !important;
+
+    a {
+      text-decoration: underline !important;
+    }
+
+    img,
+    iframe,
+    video {
+      filter: invert(100%) !important;
+      -webkit-filter: invert(100%) !important;
+    }
+  }
+}

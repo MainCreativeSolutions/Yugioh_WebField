@@ -1,0 +1,44 @@
+// $screen-xs: 480px !default;
+// $screen-xs-max: 768px !default;
+// $screen-sm-max: 991px !default;
+// $screen-md-max: 1280px !default;
+// $screen-lg-max: 1440px !default;
+// $screen-max: 1980px !default;
+
+// $xs: "screen and (max-width: #{$screen-xs})";
+// $max-xs: "screen and (max-width: #{$screen-xs-max})";
+// $max-sm: "screen and (max-width: #{$screen-sm-max})";
+// $max-md: "screen and (max-width: #{$screen-md-max})";
+// $max-lg: "screen and (max-width: #{$screen-lg-max})";
+
+// $min-xs: "screen and (min-width: #{$screen-xs-max + 1})";
+// $min-sm: "screen and (min-width: #{$screen-sm-max + 1})";
+// $min-md: "screen and (min-width: #{$screen-md-max + 1})";
+// $min-lg: "screen and (min-width: #{$screen-lg-max + 1})";
+
+/*** COLORs ***/
+$white: #FFFFFF;
+$black: #000000;
+
+$gray-0: #CCC;
+$gray-1: #999;
+
+$color-0: #ffee00;
+$color-1: #e40006;
+
+/*** FONTs ***/
+$font-0: 'Roboto', sans-serif;
+
+$font-size: 16px;
+
+/*** EASES ***/
+$ease-0: all 0.3s ease-in-out;
+$ease-1: all 0.5s ease-in-out;
+
+/*** CONFIGs ***/
+$img-path: "/Content/img/";
+$font-path: "/Content/fonts/";
+$scale-factor: calc(614 / 421);
+
+$version: "#{random(9999)}" !default;
+$sprite-padding: 2px;

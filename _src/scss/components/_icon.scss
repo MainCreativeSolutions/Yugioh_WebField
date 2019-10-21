@@ -1,0 +1,82 @@
+.icon {
+    width: 12.5%;
+    padding: 15px 0;
+    position: relative;
+    border: 2px solid transparent;   
+    cursor: pointer;
+    @include transition(all 0.3s);
+    @include border-radius(0);
+    @include display-flex;
+    @include align-items(center);
+    @include justify-content(center);
+    @include flex-direction(column);
+    &:hover {
+        z-index: 10;
+        @include border-radius(20px);
+        border: 2px solid #bbbbbb;   
+        .icon__name {
+            color: #1e1e1e;
+            background-color: $white;
+        }
+    }
+    &__img {
+        margin-bottom: 10px;
+    }
+    &__name {
+        display: inline-block;
+        padding: 5px 10px;
+        border: 2px solid $white;
+        color: $white;
+        font-family: $font-0;
+        font-size: 13px;
+        font-weight: bold;
+        @include border-radius(3px);
+        @include transition(all 0.3s);
+    }
+    &__copied {
+        display: inline-block;
+        opacity: 0;
+        background-color: $black;
+        color: $white;
+        font-family: $font-0;
+        padding: 5px;
+        margin-top: 5px;
+        font-size: 13px;
+        font-weight: bold;
+        position: absolute;
+        bottom: 0;
+        z-index: 999999;
+        @include transform(translateY(-20px));
+        @include border-radius(3px);
+        &.end {
+            animation: copied 1s forwards;
+        }
+    }
+    @each $name, $value in $icons {
+        &--#{$name} {
+            .icon__img {
+                @include svg-icons($value, $white, 80px);
+            }
+        }
+    }
+}
+
+
+@keyframes copied {
+    0% {
+        opacity: 0;
+        @include transform(translateY(-20px));
+    }
+    15% {
+        opacity: 1;
+        @include transform(translateY(20px));
+    }
+    85% {
+        opacity: 1;
+        @include transform(translateY(20px));
+    }
+    100% {
+        opacity: 0;
+        @include transform(translateY(55px));
+    }
+}

@@ -1,0 +1,10 @@
+/* Monocromática*/
+html body {
+  &.monochrome-theme {
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+    a {
+      text-decoration: underline !important;
+    }
+  }
+}

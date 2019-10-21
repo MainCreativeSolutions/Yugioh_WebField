@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>WORKFLOW FRONT-END - F5 Web Design e Tecnologia Atualizada v1.0.1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="/Content/js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="/Content/css/main.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        body {
+            background-color: #1e1e1e;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #f5f5f5;
+            line-height: 30px;
+            padding-top: 30px;
+            font-size: 16px;
+        }
+
+        .container {            
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .main-title, .title--bigger {
+            font-size: 25px;
+            font-weight: 700;
+            padding-bottom: 10px;
+            margin: 20px 0;
+            border-bottom: 1px solid #474747;
+        }
+        .title {
+            font-size: 20px;
+            font-weight: 700;
+            padding-bottom: 10px;
+            padding-top: 10px;
+        }
+        .subtitle {
+            font-size: 18px;
+            font-weight: 700;
+            padding-bottom: 10px;
+            padding-top: 10px;
+        }
+        .subtitle--small {
+            font-size: 16px;
+            font-weight: 700;
+            padding-bottom: 10px;
+            padding-top: 10px;
+        }
+
+        p {
+            padding: 10px 0;
+        }        
+
+        hr {
+            border-color: #474747;
+        }
+
+        ul {
+            margin: 20px 0 50px;
+        }
+        ul li ul{
+            margin: 20px 0;
+        }
+
+        ul li {
+            list-style: disc;
+            margin: 10px 0 10px 30px;
+        }
+        ul.unstyled {
+            border-left: 1px solid #dac237;
+        }
+        ul.unstyled li {
+            list-style: none;            
+            padding-left: 10px;
+            color: rgb(150, 150, 150);
+        } 
+       
+        a {
+            color: #4080d0;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        a:hover,
+        a:visited {
+            color: #4080d0;
+            font-weight: 600;
+        }
+
+        .pre-requesitos>li {
+            font-weight: 700;
+        }
+
+        .comment {
+            font-style: italic;
+            color: #16a316;
+            font-size: 14px;
+        }
+
+        pre {
+            background-color: #161616;
+            color: #dac237;
+            padding: 23px 30px 0;
+            margin: 30px 0;
+            border-radius: 5px;
+            position: relative;
+            /* white-space: pre-line; */
+            word-wrap: break-word;
+            overflow-x: auto;
+        }
+
+        code {
+            position: relative;
+            top:-10px;
+            font-size: 14px;
+        }
+        .files-name {
+            color: #dac237!important;
+            font-style: italic;
+        }       
+        #logoF5 {
+            fill: #f4be00;
+            display: block;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1><svg id="logoF5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+            <g><path fill="none"d="M87,9.292H23.667l59.083,4.5c3,0.208,4.375,2.167,4.541,6.083l3.584,44.334L91,14.083
+            C91, 11.542, 89.666, 9.417, 87, 9.292z"/>
+            <path d="M94.75,2.083H5.458c-2,0-3.625,1.625-3.583,3.583v88.75C1.875,96.375,3.458,98,5.458,98H94.75
+            c1.959, 0, 3.584-1.584, 3.584-3.584V5.667C98.334, 3.708, 96.75, 2.083, 94.75, 2.083z M22, 41.833h13.042v-0.042v0.042v5.917h-6.667v6.916 h5.708v5.959h-5.708V73.5H22V41.833z M17.667, 83.25L4.542, 96l8.375-16.459l0.25-45.791l1.792, 44.5c0.417, 1.416, 1.708, 3, 3.583, 3.084 l50.708-0.125L17.667, 83.25z M46.583, 58.709c-0.917-1-2.625-1.5-5.083-1.543c-0.333, 0-0.667, 0-1.042, 0.043 c-0.333, 0-0.708, 0.041-1.125, 0.125l0.042-0.043l2.667-15.5h12.375v5.292h-8.041l-1, 5.292c2.5, 0.209, 4.75, 1.084, 6.75, 2.666 c2, 1.584, 2.959, 4.125, 2.959, 7.584c0, 2.959-0.834, 5.625-2.543, 7.959c-1.707, 2.375-4.291, 3.541-7.791, 3.541 c-1.708-0.209-3.042-0.416-4.083-0.666c-0.5-0.125-0.958-0.25-1.417-0.418c-0.458-0.166-0.875-0.332-1.25-0.582l1.375-5.625 c0.75, 0.541, 1.417, 0.957, 2.083, 1.25c0.667, 0.25, 1.292, 0.416, 1.917, 0.416c1.333, 0, 2.417-0.5, 3.292-1.5S48, 64.709, 48, 63.166 c0-0.041, 0-0.125, 0-0.166s0-0.084, 0-0.166c0-0.043, 0-0.084, 0-0.125c0-0.043, 0-0.084, 0-0.125C48, 61, 47.542, 59.709, 46.583, 58.709z M90.875, 64.209l-3.584-44.334C87.125, 15.958, 85.75, 14, 82.75, 13.792l-59.083-4.5H87c2.666, 0.125, 4, 2.25, 4, 4.792L90.875, 64.209z"/></g></svg></h1>
+        <h2 class="main-title">WORKFLOW FRONT-END - F5 Web Design e Tecnologia Atualizada</h1>
+        <h2 class="title">Começando</h2>
+        <p>Esse workflow visa padronizar as estruturas de todos os projetos futuros na parte de web, para agilizar o processo de estruturação, facilitar na manutenção e integração da equipe em todos os projetos, minimizando possíveis erros na hora de rodar o projeto local. <br> </p>
+        <h4 class="subtitle--small">Por que ter uma estrutura padronizada?</h4>
+        <p>Manter uma estrutura padronizada, facilita a transição de um projeto para outro entre os membros da equipe, além de agilizar e facilitar o processo de entendimento do projeto.</p>
+        <h3 class="subtitle">Pré-requisitos</h3>
+        <ul class="pre-requesitos">
+            <li>Node.js: ^v8.9.4;</li>
+            <li>Npm: ^v5.6.0;</li>
+            <li>Grunt.</li>
+        </ul>
+        <hr>
+        <h3 class="subtitle">Porque usar esse workflow? </h3>
+        <p>Além de seguirmos um padrão para todos os projetos, trabalhamos nesse workflow para facilitar algumas atividades.</p>
+        <ul>
+            <li>Estrutura de pastas padronizadas com base no <strong> <a href="https://sass-guidelin.es/#architecture">Guide Style do SASS</a> </strong>;</li>
+            <li>Compilação otimizada de <strong>SASS</strong>;</li>
+            <li>Criação automátizada de sprites de imagens;</li>
+            <li>Controle de <strong>Packages</strong> com <strong>NPM</strong>;</li>
+            <li>Utilização de mixins disponíveis no <strong>COMPASS</strong>;</li>
+            <li>Utilização de mixins de versionamento de imagens;</li>
+            <li>Sincronização do browser com <strong> <a href="https://browsersync.io/">BrowserSync</a> </strong>, para fazer reload na página a cada modificação de css, imagens, js. Podemos sincronizar com smartphones, tablets e outras máquinas sem a necessidade de fazer upload no servidor, minimizando erros e quebras de estrutura em diferentes telas e dispositivos;</li>
+            <li>Otimização de imagens utilizando <strong> <a href="https://tinypng.com/">TinyPNG</a> </strong>, como a maior parte das imagens são incluídas dentro das bibliotecas do sitefinty, poderíamos incluir todas as imagens no projeto e fazer a otimização antes de subir para o sitefinity;</li>
+            <li>Configuração de arquivos e bibliotecas de fornecedores ( <strong>vendors</strong>) Ex: Bootstrap, MaterializeCSS, Owl-Carousel;</li>
+            <li>Estrutura de fácil adaptação para multisites, ou seja, sites distintos que usam uma mesma estrutura de layout.</li>
+        </ul>
+        <hr>
+        <h2 class="title">Utilização do workflow</h2>
+        <hr>
+        <h3 class="subtitle">Primeiros passos</h3>
+        <p>Se está página foi aberta automaticamente após a finalização do <strong><em>"NPM INSTALL"</em></strong>, isto significa que tudo ocorreu bem e a estrutura já está pronta para ser usada.</p>
+        <h2 class="title">Estrutura</h2>
+        <p>Tudo que estiver relacionado ao front-end do site deverá estar dentro de (" <a href="_src/">_src</a> "), com base na estrutura do <a href="https://sass-guidelin.es/#architecture">Guide Style do SASS</a>, teremos a seguinte arquiterura de arquivos:</p>
+        <ul class="unstyled">
+            <li>_src &nbsp;&nbsp;&nbsp; <span class="comment">// Origem dos arquivos fontes do front-end</span>
+                <ul class="unstyled">
+                    <li>fonts &nbsp;&nbsp;&nbsp; <span class="comment">// Caso tenha fontes pesonalizadas enviadas pelo cliente, os arquivos devem ficar nesta pasta separados por pastas de cada fontes utilizada.</span></li>
+                    <li>html &nbsp;&nbsp;&nbsp; <span class="comment">// Pasta para Arquivos html, exemplo um template de e-mail, deve-se criar um novo diretórios "emails" e incluir os templates.</span>
+                        <ul class="unstyled">
+                            <li class="files-name">index.html &nbsp;&nbsp;&nbsp; <span class="comment">// Arquivo base para testes</span></li>
+                        </ul>
+                    </li>
+                    <li>img &nbsp;&nbsp;&nbsp; <span class="comment">// Pasta para imagens</span>
+                        <ul class="unstyled">
+                            <li>_sprites &nbsp;&nbsp;&nbsp; <span class="comment">// Pasta onde incluiremos quaisquer arquivos ".png" para usarmos em um sprite de imagens</span>
+                                <ul class="unstyled">
+                                    <li class="files-name">default.png &nbsp;&nbsp;&nbsp; <span class="comment">// Arquivo base não deve ser apagado</span></li>
+                                </ul>
+                            </li>
+                            <li>svg &nbsp;&nbsp;&nbsp; <span class="comment">// Pasta para arquivos svg</span></li>
+                            <li class="files-name">sprite.png&nbsp;&nbsp;&nbsp; <span class="comment">// Arquivo gerado automaticamente</span></li>
+                        </ul>
+                    </li>
+                    <li>js &nbsp;&nbsp;&nbsp; <span class="comment">// Arquivos javascript customizados</span></li>
+                    <li>scss &nbsp;&nbsp;&nbsp; <span class="comment">// Pasta para organização dos arquivos ".scss", dentro desse diretório, encontraremos toda a arquiterura e organização de SASS.</span>
+                        <ul class="unstyled">
+                            <li>base &nbsp;&nbsp;&nbsp; <span class="comment">// Arquivos base como fontes, reset e utilidades (estilos gerais para todo o site)</span>
+                                <ul class="unstyled">
+                                    <li class="files-name">_fonts.scss &nbsp;&nbsp;&nbsp; <span class="comment">// Nesse arquivo contém um exemplo da utilização do mixin "@include font-face".</span></li>
+                                    <li class="files-name">_reset.scss &nbsp;&nbsp;&nbsp; <span class="comment">// Reset global do COMPASS</span></li>
+                                    <li class="files-name">_utilities.scss &nbsp;&nbsp;&nbsp; <span class="comment">// Estilos para serem utilizados em qualquer área do site (margin, padding, align etc).</span></li>
+                                </ul>
+                            </li>
+                            <li>components &nbsp;&nbsp;&nbsp; <span class="comment">// Basicamente são todos os componentes do site que devem ser separados em pequenas partes, para assim não dependerem de uma página, isso ajuda a deixar o código mais limpo e de fácil manutenção.</span>
+                                <ul class="unstyled">
+                                    <li class="files-name">_buttons.scss &nbsp;&nbsp;&nbsp; <span class="comment">// Para estilizar os botões</span></li>
+                                    <li class="files-name">_carousel.scss &nbsp;&nbsp;&nbsp; <span class="comment">// Para estilizar carrosséis</span></li>
+                                    <li class="files-name">_dropdown.scss &nbsp;&nbsp;&nbsp; <span class="comment">// Para estilizar dropdown</span></li>
+                                    <li class="files-name">_inputs.scss &nbsp;&nbsp;&nbsp; <span class="comment">// Para estilizar inputs</span></li>
+                                </ul>
+                            </li>
+                            <li>layout &nbsp;&nbsp;&nbsp; <span class="comment">// Arquivos para estilizar grandes áreas do site.</span>
+                                <ul class="unstyled">
+                                    <li class="files-name">_footer.scss</li>
+                                    <li class="files-name">_forms.scss</li>
+                                    <li class="files-name">_header.scss</li>
+                                    <li class="files-name">_navigation.scss</li>
+                                </ul>
+                            </li>
+                            <li>pages &nbsp;&nbsp;&nbsp; <span class="comment">// Arquivos para necessidades específicas de cada página, idealmente devem ser usados para ajustes específicos como alinhamentos e sobre-escrever estilos de componentes. Evitar usar arquivos de páginas para criar componentes que dependem dela para assumir o estilo.</span>
+                                <ul class="unstyled">
+                                    <li class="files-name">_home.scss</li>
+                                </ul>
+                            </li>
+                            <li>utils &nbsp;&nbsp;&nbsp; <span class="comment">// Arquivos uteis</span>
+                                <ul class="unstyled">
+                                    <li class="files-name">_functions.scss &nbsp;&nbsp;&nbsp; <span class="comment">// Existem algumas funções pré definidas usadas em diversos sites.</span></li>
+                                    <li class="files-name">_mixins.scss &nbsp;&nbsp;&nbsp; <span class="comment">// Existem alguns pré definidos usados em diversos sites.</span></li>
+                                    <li class="files-name">_placeholders.scss &nbsp;&nbsp;&nbsp; <span class="comment">// %placeholders são blocos de estilos que são utilizados em várias áreas do site, para não ficar gerando códigos desnecessários usa-se %placeholders e faz um @extend no elemento onde necessita do estilo.</span></li>
+                                    <li class="files-name">_sprites.scss &nbsp;&nbsp;&nbsp; <span class="comment">// Este arquivos é gerado automaticamente ao incluir uma imagem na pasta ("<a href="_src/img/_sprites/">_src/img/_sprites/</a>"), nele contém o nome da images, posicionamento dentro do sprite e tamanho, é muito simples de ser usado, mais adiante teremos exemplos de utilização de mixins e funcões pré-definidos.</span></li>
+                                    <li class="files-name">_svg-assets.scss &nbsp;&nbsp;&nbsp; <span class="comment">// Caso tenham necessidades de ter um icone svg que precisam alterar a cor com facilidade, existem um exemplo de como incluir um código "xml" do svg em uma variavel para alterar a cor posteriormente. OBS: Só funciona em SVG de uma cor apenas.</span></li>
+                                    <li class="files-name">_vars.scss &nbsp;&nbsp;&nbsp; <span class="comment">// Todas as variáveis do site devem estar neste arquivo, já existem algumas para serem utilizadas e seguirem como base para as demais criadas.</span></li>
+                                    <li class="files-name">_vendors.scss &nbsp;&nbsp;&nbsp; <span class="comment">// Quando instalamos alguma biblioteca via "NPM", geralmente temos acesso aos arquivos fontes dela, para melhor aproveitamento desse método de importação de bibliotecas, optem por bibliotecas com arquivos "SASS, SCSS". Para exemplificar usaremos o bootstrap. <br /><br />Com o terminal/prompt aberto  na pasta raiz do projeto onde encontra-se o arquivo ("<a href="package.json">package.json</a>") e "<a href="config.json">config.json</a>" execute o seguinte comando:<br><br>npm install --save-dev bootstrap (Este comando irá baixar a versão mais recente do bootstrap disponibilizado no <a href="https://www.npmjs.com/" target="_blank" rel="noopener noreferrer">NPM</a>), aguarde até o final do download.<br><br>Navegue até a pasta ("<a href="node_modules/bootstrap/scss">node_modules/bootstrap/scss</a>") e copie o arquivo bootstrap.scss para dentro da pasta vendors ("<a href="_src/scss/vendors/">_src/scss/vendors/</a>") acrescentando "_" no nome do arquivo, para que o compilador de sass não gere um arquivo "bootstrap.css". Para que todo esse trabalho para importar o bootstrap se podemos simplesmente ir no site e baixarmos a versão minificada do css e js? <br>Com essa estrutura e importando o bootstrap dessa forma, conseguimos importar somente o que precisamos, basta comentar as linhas que importão os componentes do bootstrap nesse arquivos que copiamos para dentro da nossa pasta vendors. <br>Mas para isso funcionar precisaremos agora configurar e dizer para nossa estrutura de onde está vindo este arquivo bootstrap e seus componentes e para isso que serve o arquivo ("<a href="config.json">config.json</a>"). Este arquivo é muito importante e é ele que se encarrega de dizer ao <a href="Gruntfile.js">Gruntfile.js</a> onde deve pegar os arquivos e onde deve gerar os arquivos, fizemos esse arquivos de configuração para não precisar mexer no GRUNT que pode ser quebrado facilmente com uma vírgula no lugar errado. <br><br>Abrimos então o ("<a href="config.json">config.json</a>") e vamos até "libraries" para configurar os caminhos das bibliotecas scss, fonts, scripts e vendors.
+<pre>
+<code>
+"libraries": {
+    "scss": [
+        "node_modules/compass-mixins/lib", 
+        "node_modules/bootstrap/scss", <span class="comment">// Incluimos o diretório de onde está o arquivo ".SCSS" principal do bootstrap</span>
+    ],
+
+    "scripts": [],
+
+    "fonts": [],
+
+    "vendors": [
+        "node_modules/bootstrap/dist/js/bootstrap.min.js" <span class="comment">// Incluimos o diretório de onde está o arquivo ".JS" principal do bootstrap que será copiado para a pasta vendors na rais do projeto.</span>
+    ]
+},
+</code>
+</pre>
+                                    <br>Este procedimento poderá ser feito para qualquer biblioteca instalada via "NPM" ou copiada diretamente na pasta vendors dentro da "<strong>_SRC</strong>", feito isso precisamos agora habilitar a biblioteca no projeto, basta abrir o arquivo ("<a href="_src/scss/utils/_vendors.scss">_src/scss/utils/_vendors.scss</a>") e importar o arquivo .scss copiado anteriormente para a pasta ("<a href="_src/scss/vendors/_bootstrap.scss">_src/scss/vendors/_bootstrap.scss</a>").</span></li>
+                                </ul>
+                            </li>
+                            <li>vendors</li>
+                            <li class="files-name">main.scss</li>
+                        </ul>
+                    </li>
+                    <li>vendors &nbsp;&nbsp;&nbsp; <span class="comment">// Pasta para incluirmos bibliotecas de terceiros, esta pasta é diferente da pasta "vendors" dentro de "scss", esta pasta deve ser utilizada apenas quando a bliblioteca não estiver no site do <a href="https://www.npmjs.com/" target="_blank" rel="noopener noreferrer">NPM</a></span></li>
+                </ul>
+            </li>
+        </ul>
+        <p>Com todos os packages devidamente instalados, o primeiro comando a ser executado é o <strong>grunt</strong>, se estiver tudo funcionando corretamente, ele abrirá uma janela no browser de um html base que encontra-se em (&quot; <a href="_src/html/index.html">_src/html/index.html</a>&quot;) já configurado com o <strong>CSS</strong> e <strong>JS</strong>. Para testar se o <strong>SASS</strong> está sendo compilado corretamente, altere qualquer coisa em (&quot; <a href="_src/scss/base/_utilities.scss">_src/scss/base/_utilities.scss</a>&quot;).</p>
+        <p><strong>Exemplo:</strong> </p>
+<pre>
+<code>
+body {
+    background-color:black;
+}
+</code>
+</pre>
+        <h3 class="subtitle">Configurando multisites.</h3>
+        <p>Para configurar essa estrutura para suportar multisites é muito simples, sabendo que o projeto será multisite, isto é sites que compartilham maior parte da estrutura base e podendo evoluir separadamente.</p>
+        <ul>
+            <li>Abra o arquivo <a href="config.json">config.json</a>;</li>
+            <li>Em <strong>multisite: false</strong>, altere para true;</li>
+            <li>Dentro de ("<a href="_src/">_src/</a>"), precisamos criar um novo diretório com o nome do site exemplo: "site-1";</li>
+            <li>Copie toda a estrutura de ("<a href="_src/">_src/</a>") para dentro desse novo diretório;</li>
+            <li>Crie um novo diretório global e mova a estrutura de ("<a href="_src">_src</a>") exceto o diretório do novo site;</li>
+            <li>Dentro do diretório do novo site no arquivo <span class="files-name">main.scss</span> altere o caminho dos "imports" para estrutura global.</li>
+        </ul>
+        <h3 class="subtitle">Configurando o server para sincronizar com <strong>BrowserSync</strong> e assistir à todas as alterações de <strong>CSS, JS e IMAGENS</strong>.</h3>
+        <ul>
+            <li>Abra o arquivo <a href="config.json">config.json</a>;</li>
+            <li>Na linha onde se encontrar <em>( <strong>&quot;Server&quot;: &quot;&quot;,</strong>)</em> inclua o endereço do projeto ja cadastrado no <strong>IIS</strong> e <strong>hosts</strong>.</li>
+        </ul>
+<pre>
+<code>
+https://nome-do-projeto.ef5.local/
+</code>
+</pre>
+        <ul>
+            <li>Execute o comando <strong>grunt</strong>, o <strong>BrowserSync</strong> irá abrir uma janela no navegador com o projeto local e assistindo a quaisquer mudanças feitas em <strong>CSS, JS, IMAGENS</strong> etc.</li>
+        </ul>
+        <h2 class="title--bigger">Como usar os mixins já definidos?</h1>
+        <h2 class="title">EXAMPLOS MIXINS</h2>
+        <h2 class="title--bigger">Converter unidades de medidas de fontes em <em>REM</em> </h1>
+        <h2 class="title">parseInt(value)</h2>
+        <p>Remove qualquer unidade do valor, retornando apenas o número inteiro.</p>
+        <p>Exemplos:</p>
+<pre>
+<code>
+@include parseInt(20px) - *20*
+@include parseInt(10em) - *10*        
+@include parseInt(10em) - *10*
+</code>
+</pre>
+        <hr>
+        <h2 class="title">rem(value)</h2>
+        <p>Converte qualquer valor para <em>rem</em>, usando como base a variavel <em>$font-size</em>, é importante colocar a variavel <em>$font-size</em> na tag <em>html</em>.</p>
+        <p>Exemplos:</p>
+        <p> <strong>$font-size = 16px</strong> </p>
+<pre>
+<code>
+@include parseInt(16px) - *1rem*        
+@include parseInt(32px) - *2rem*        
+@include parseInt(24px) - *1.5rem*        
+@include parseInt(22px) - *1.375rem*
+</code>
+</pre>
+        <hr>
+        <h2 class="title--bigger">Criar ellipsis...</h1>
+        <h2 class="title">ellipsis-multiline($line-height, $lines: 2, $set-height: true)</h2>
+        <p>Faz um <em>ellipsis</em> de várias linhas, sendo o único parametro obrigatório o line-height.</p>
+        <ul>
+            <li> <p> <em>$line-height</em>: <em>line-height</em> desejado (parâmetro obrigatório);</p> </li>
+            <li> <p> <em>$lines</em>: Número de linhas (default 2 linhas);</p> </li>
+            <li> <p> <em>$set-height</em>: True ou false para colocar tamanho fixo ou não (default true).</p> </li>
+        </ul>
+        <p>Exemplos:</p>
+<pre>
+<code>
+@include ellipsis-multiline(16px) - Ellipsis com line-height de 16px, 2 linhas e altura fixa     
+@include ellipsis-multiline(20px, 4) - Ellipsis com line-height de 20px, 4 linhas e altura fixa                       
+@include ellipsis-multiline(24px, 5, false) - Ellipsis com line-height de 25px, 5 linhas e altura automatica
+</code>
+</pre>
+        <hr>
+        <h2 class="title--bigger">Utilizando sprites</h1>
+        <h2 class="title">use-sprite($sprite, $width: true)</h2>
+        <p>Seta todas a propriedades usar a sprite de forma correta.</p>
+        <ul>
+            <li>
+                <p> <em>$sprite</em>: Nome da imagem em forma de variável (exemplo.jpg você deve passar $exemplo);</p>
+            </li>
+            <li>
+                <p> <em>$width</em>: Largura desejada, default é o tamanho real da imagem</p>
+            </li>
+        </ul>
+        <p>Exemplos:</p>
+<pre>
+<code>
+@include use-sprite($exemplo): Seta a imagem exemplo com o tamanho real dela        
+@include use-sprite($exemplo, 50px): Seta a imagem exemplo com o 50px de largura e altura de acordo com a largura
+</code>
+</pre>
+        <hr>
+        <h2 class="title--bigger">Utilizando icones em svg</h1>
+        <h2 class="title">svg-icons(map-get($icons, icon-name), color, size)</h2>
+        <p>Após gerar o código svg dos icones e incluí-los em ("<a href="_src/scss/utils/_svg-assets.scss">_src/scss/utils/_svg-assets.scss</a>"), será possível usar esse mixin de forma bem simples.</p>
+        <p>Estamos desenvolvendo uma biblioteca de icones mais usados nos projetos, com o grunt rodando é possível visualizar a galeria de icones no caminho /icons.html, logo após o número da porta gerada automaticamente do localhost.</p>
+        <p>Clicando nos icones, você copiará o código abaixo já com a variável do icone.</p>
+        <p>Exemplo:</p>
+<pre>
+<code>
+@include svg-icons(map-get($icons,icon-test), color, size);
+</code>
+</pre>
+
+<hr>
+        <h2 class="title--bigger">Utilizando plugin grunt-include-replace</h1>
+            <p>O include grunt replace é uma forma de fazer tipo de page master para conteúdos estáticos que pode conter todo o layout base em um único arquivo e vários outros arquivos separados para cada componente, no final ele gera um arquivo com tudo que você fez include.</p>
+            <p>Isso é muito útil para ajudar a pensar no projeto como vários componentes e não em páginas.</p>
+            <p>Para desenvolver uma serie de e-mails que contém vários elementos repetidos etc...</p>
+            <p>Os arquivos devem estar dentro da pasta ("<a href="_src/html">_src/html</a>"), geralmente criamos uma pasta ("<a href="_scr/html/includes">_scr/html/includes</a> ") para criar os componentes html.</p>
+            <p>Exemplo:</p>
+            
+<pre>
+<code>
+<div>
+    @@include('includes/arquivo.html')
+</div>
+</code>
+</pre>
+
+
+        <hr>
+        <h3 class="subtitle">
+            <strong>Metodologia para escrita de CSS</strong>
+        </h3>
+        <h2 class="title">Adotaremos a metodologia BEM (Block Element Modifier)</h2>
+        <hr>
+        <p>Para que o código se torne mais legível, claro e de fácil manutenção.</p>
+        <h2 class="title--bigger">BLOCO</h1>
+        <p>O bloco é o recipiente ou contexto em que o elemento se encontra. Imagine isso sendo as grandes partes estruturais
+            do seu código. Você deve ter um cabeçalho, um rodapé, uma barra lateral e uma área para conteúdo. Cada um deles
+            pode ser considerado um bloco.</p>
+<pre>
+<code>
+.block
+</code>
+</pre>
+        <h2 class="title--bigger">ELEMENTO</h2>
+        <p>O elemento é parte do bloco. O bloco é tudo e os elementos são as partes. Cada elemento é escrito após o nome do
+            bloco, conectado por dois traços sublinhados.</p>
+<pre>
+<code>
+.block__element
+</code>
+</pre>
+        <p>Os dois traços sublinhados permitem que você navegue rápido e visualmente, além de poder manipular o código.</p>
+        <p>Alguns exemplos de como a metodologia funciona:</p>
+<pre>
+<code>
+.header__logo {}
+.header__tagline {}
+.header__searchbar {}
+.header__navigation {}
+</code>
+</pre>
+        <p>Como pode ver, há bastante espaço para ser criativo e moldar a metodologia ao seu gosto. “Navigation” poderia ser
+            “nav”, “tagline” poderia ser alterada para “tag” ou “tagLine”. A chave é manter a nomenclatura simples, clara
+            e precisa.
+            <br>
+            <br> Não pense demais. E, uma vez que seu HTML e CSS estejam
+            <strong>DRY</strong> (
+            <strong>
+                <em>don’t repeat yourself – não se repita</em>
+            </strong>), não será problema, caso precise alterar os nomes das classes. Se encontrar algum nome mais semântico que funcione
+            para você, apenas tente manter um padrão. Os elementos farão parte da base do nome das classes, ajudando você
+            a entender como estruturar suas folhas de estilo e como administrar seu layout.</p>
+        <h3 class="subtitle">MODIFICADORES</h3>
+        <hr>
+        <p>Quando você nomeia uma classe, o ponto é permitir que aquele elemento seja repetível, de forma que não precise escrever
+            novas classes em outras áreas do site se os estilos dos elementos são os mesmos. Quando precisar modificar o
+            estilo de um elemento específico, você pode usar um modificado. Para fazer isso, você adiciona um hífen duplo
+            -- após o elemento (ou bloco).</p>
+        <p>Exemplo simples:</p>
+<pre>
+<code>
+.block--modifier {}
+.block__element--modifier {}
+</code>
+</pre>
+        <p>Tenha muito cuidado com estes! Lembre-se de que você vai querer manter o máximo de simplicidade possível para não
+            precisar repetir ou criar classes extras. A menos que, seja extremamente necessário. Falemos sobre o código usando
+            o cabeçalho (header) de um site, como exemplo:</p>
+<pre>
+<code>
+.header__navigation {}
+.header__navigation--secondary {}
+</code>
+</pre>
+        <p>Se estiver usando uma navegação secundária, é provável que o espaçamento e o layout sejam os mesmos da navegação
+            primária, mas com a cor diferente. Você pode duplicar os estilos originais ou, melhor ainda, usar @extend, para
+            estender o elemento principal (de forma que o elemento secundário herde todas as propriedades), e assim, mudar
+            só os estilos necessários.
+            <br>
+            <br>
+        </p>
+<pre>
+<code>
+.header__navigation {
+    background: #008cba;
+    padding: 1rem 0;
+    margin: 2rem 0;
+    text-transform: uppercase;
+}
+
+.header__navigation--secondary {
+    @extend .header__navigation;
+    background: #dfe0e0;
+}
+</code>
+</pre>
+        <p>Você talvez esteja pensando: “mas os nomes das classes são tão grandes!”. Eu já vejo assim: A nomenclatura BEM é
+            específica, clara e fácil de ler dentro do HTML e comunica, perfeitamente, seu intuito.
+            <br>
+            <br>
+        </p>
+        <p>Linguagens como o Sass (o Scss, especificamente), nos permite que criemos elementos que compartilhem os mesmos estilos
+            com algumas diferenças. O exemplo acima previne que dupliquemos estilos, porém, permite que alteremos o que for
+            preciso. O interessante da metodologia BEM é que não precisamos combinar nomes de classes ambíguos como “panel
+            panel-default col-md-3”.</p>
+        <h2 class="title">O que não se deve fazer ao utilizar a metodologia
+            <strong>BEM</strong>
+        </h2>
+        <p>Ao utilizar a metodologia BEM, deve-se evitar que reflita o html dentro do css, ou seja, repetir exatamente a estrutura
+            feita no html.</p>
+        
+        <p>Exemplo de como não se deve fazer o <strong> <em>HTML</em> </strong> usando Metodologia <strong> <em>BEM</em> </strong>:</p>
+<pre>
+<code>
+&lt;div <span><span>class</span></span>=<span>"card"</span>&gt;
+    &lt;div <span><span>class</span></span>=<span>"card__header"</span>&gt;
+        &lt;h2 <span><span>class</span></span>=<span>"card__header__title"</span>&gt;<span>Card</span><span>'s</span> <span>Title</span>&lt;/h2&gt;
+        &lt;div <span><span>class</span></span>=<span>"card__header__image"</span>&gt;
+            &lt;img src=<span>""</span>&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div <span><span>class</span></span>=<span>"card__body"</span>&gt;        
+        &lt;p <span><span>class</span></span>=<span>"card__body__subtitle"</span>&gt;
+            <span>Card</span><span>'s</span> <span>Subtitle</span> 
+        &lt;/p&gt;
+        &lt;p <span><span>class</span></span>=<span>"card__body__description"</span>&gt;
+            <span>Card</span><span>'s</span> description
+        &lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div <span><span>class</span></span>=<span>"card__footer"</span>&gt;
+        &lt;a href=<span>"#"</span> <span><span>class</span></span>=<span>"card__footer__link"</span>&gt;card<span>'s</span> link&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
+        <p>Exemplo de como não se deve fazer o
+            <strong>
+                <em>SCSS</em>
+            </strong> usando Metodologia
+            <strong>
+                <em>BEM</em>
+            </strong>:</p>
+<pre>
+<code>
+.card { <span class="comment">// Bloco</span> 
+    &__header {  <span class="comment">// Elemento 1</span>
+        &--bg-dark {  <span class="comment">// Modificador do background</span>
+        }
+        .card__title {
+        }
+        .card__image {        
+        }
+    }
+
+    &__body {  <span class="comment">// Elemento 2</span>
+        .card__subtitle {
+        }
+        .card__description {
+        }
+    }
+
+    &__footer {  <span class="comment">// Elemento 3</span>
+        .card__link {
+        }
+    }
+}
+</code>
+</pre>
+<p>Exemplo de boas práticas no <strong> <em>HTML</em> </strong> usando Metodologia <strong> <em>BEM</em> </strong>:</p>
+<pre>
+<code>
+&lt;div <span><span>class</span></span>=<span>"card"</span>&gt;
+    <span><span>&lt;<span>div</span> <span>class</span>=<span>"card__header card__header--bg-dark"</span>&gt;</span>
+        <span>&lt;<span>h2</span> <span>class</span>=<span>"card__title"</span>&gt;</span>Card's Title<span>&lt;/<span>h2</span>&gt;</span>
+        <span>&lt;<span>div</span> <span>class</span>=<span>"card__image"</span>&gt;</span>
+            <span>&lt;<span>img</span> <span>src</span>=<span>""</span>&gt;</span>
+        <span>&lt;/<span>div</span>&gt;</span>
+    <span>&lt;/<span>div</span>&gt;</span>
+    <span>&lt;<span>div</span> <span>class</span>=<span>"card__body"</span>&gt;</span>        
+        <span>&lt;<span>p</span> <span>class</span>=<span>"card__subtitle"</span>&gt;</span>
+            Card's Subtitle 
+        <span>&lt;/<span>p</span>&gt;</span>
+        <span>&lt;<span>p</span> <span>class</span>=<span>"card__description"</span>&gt;</span>
+            Card' description
+        <span>&lt;/<span>p</span>&gt;</span>
+    <span>&lt;/<span>div</span>&gt;</span>
+    <span>&lt;<span>div</span> <span>class</span>=<span>"card__footer"</span>&gt;</span>
+        <span>&lt;<span>a</span> <span>href</span>=<span>"#"</span> <span>class</span>=<span>"card__link"</span>&gt;</span>link<span>&lt;/<span>a</span>&gt;</span>
+    <span>&lt;/<span>div</span>&gt;</span>
+<span>&lt;/<span>div</span>&gt;</span></span>
+</code>
+</pre>
+        <p>Exemplo de boas práticas no
+            <strong>
+                <em>SCSS</em>
+            </strong> usando Metodologia
+            <strong>
+                <em>BEM</em>
+            </strong>:</p>
+<pre>
+<code>
+.card {  <span class="comment">// Bloco</span>
+    .card__header {  <span class="comment">// Elemento 1</span>
+        &--bg-dark {  <span class="comment">// Modificador do background</span>
+        }
+        .card__title {
+        }
+        .card__image {        
+        }
+    }
+
+    .card__body {  <span class="comment">// Elemento 2</span>
+        .card__subtitle {
+        }
+        .card__description {
+        }
+    }
+    .card__footer {  <span class="comment">// Elemento 3</span>
+        .card__link {
+        }
+    }
+}
+</code>
+</pre>
+        <h3 class="subtitle">Conclusão</h3>
+        <p>O <strong> <em>BEM</em> </strong>, em resumo, é isso. Como pode ver, há muito mais coisas a se explorar. <strong> <em>BEM</em> </strong> é um sistema em constante evolução que permite você trazer clareza ao seu código, além de ajudá-lo a definir e configurar a hierarquia do seu desenvolvimento front-end.</p>
+        <h4 class="subtitle--small">Leitura Complementar</h4>
+        <ul>
+            <li>
+                <a href="http://bem.info/">Site Oficial da BEM</a>
+            </li>
+            <li>
+                <a href="http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/">MindBEMding – Entendendo a sintaxe do BEM</a>
+            </li>
+            <li>
+                <a href="http://coding.smashingmagazine.com/2012/04/16/a-new-front-end-methodology-bem/">Uma Nova Metodologia para o Front-End: BEM</a>
+            </li>
+        </ul>
+        <hr>
+        <p>Créditos do texto sobre BEM <a href="https://webdesign.tutsplus.com/pt/articles/an-introduction-to-the-bem-methodology--cms-19403">TUTPLUS</a>.</p>
+        <h2 class="title--bigger">Observações gerais e algumas regras que devem ser seguidas:</h2>
+        <ul>
+            <li>
+                <p>Separar devidamente os elementos em arquivos <span class="files-name">.scss</span>, os estilos referentes a um botão, devem ficar dentro de <a href="/components/_buttons.scss">/components/_buttons.scss</a> . Utilizar outros arquivos apenas para fazer pequenos ajustes de posicionamento ou modificação específica e realmente necessária (uma vez que utilizaremos a metodologia <strong> <em>BEM</em> </strong> para a escrita de <strong> <em>SCSS</em> </strong>, e já teríamos nossos modificadores);</p>
+            </li>
+            <li>
+                <p>Como na maioria dos projetos fazemos a utilização de algum <strong>framework</strong>, <em>bootstrap, materialize e angular js</em>. Todo nome de <strong>class</strong> e <strong>ID</strong> devem ser nomeados em <strong>Inglês</strong>, não deverá portando misturar idiomas para nomear <strong>class</strong> e <strong>ID</strong> por exemplo, <strong> <em>.box-esquerdo</em> </strong> e sim <strong> <em>.box-picture--align-left</em> </strong>, (No exemplo, já uma aplicação de modificador de <strong> <em>BEM</em> </strong>);</p>
+            </li>
+            <li>
+                <p>Antes de fazer commit para enviar para produção, executar o comando <strong> <em>grunt dist</em> </strong> para fazer minificação de arquivos e otimização de imagens utilizadas. Ao realizar commit, descrever o que foi feito, e verificar os arquivos que estão na lista do commit. Não fazer commit de coisas que não modificou;</p>
+            </li>
+            <li>
+                <p>Sempre trabalhar local nos projetos;</p>
+            </li>
+            <li>
+                <p>Ao escrever suas classes css, os comentários são sempre bem-vindos. Nome de classes não devem ser algo genérico do tipo “.box” sem nenhum complemento. Isso vai ajudar em eventuais manutenções, e quando um outro desenvolvedor precisar alterar o código;</p>
+            </li>
+            <li>
+                <p>Antes de começar a modificar, sempre fazer update local e verificar se a versão local está de acordo com a versão do servidor;</p>
+            </li>
+            <li>
+                <p>Antes de começar a criar componentes novos, verifique se já não há algo parecido ou próximo do que necessita.</p>
+            </li>
+        </ul>
+        <hr>
+        <h4 class="subtitle--small">Agradeço a colaboração de todos.</h4>
+    </div>
+</body>
+</html>

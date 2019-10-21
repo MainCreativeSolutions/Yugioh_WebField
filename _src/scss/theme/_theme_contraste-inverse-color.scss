@@ -1,0 +1,8 @@
+/*Cor invertida*/
+html body {
+  &.inverse-color-theme {
+    background-color: #000 !important;
+    filter: invert(100%) !important;
+    -webkit-filter: invert(100%) !important;
+  }
+}

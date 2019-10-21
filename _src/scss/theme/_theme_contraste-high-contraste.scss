@@ -1,0 +1,14 @@
+/* Alto Contraste */
+html body {
+  &.high-contraste-theme {
+    filter: contrast(1.5);
+    -webkit-filter: contrast("1.5");
+
+    img,
+    iframe,
+    video {
+      filter: contrast(0.65);
+      -webkit-filter: contrast(0.65);
+    }
+  }
+}
